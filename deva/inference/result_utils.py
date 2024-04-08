@@ -269,13 +269,17 @@ def save_result(queue: Queue):
                         detections = sv.Detections(xyxy,
                                                    confidence=np.array(all_scores),
                                                    class_id=np.array(all_cat_ids))
-                        box_annotator = sv.BoundingBoxAnnotator()
-                        label_annotator = sv.LabelAnnotator()
-                        blend = box_annotator.annotate(scene=blend,
-                                                   detections=detections)
-                        blend = label_annotator.annotate(scene=blend,
-                                                        detections=detections,
-                                                        labels=labels)
+                        try:
+                            box_annotator = sv.BoundingBoxAnnotator()
+                            label_annotator = sv.LabelAnnotator()
+
+                            blend = box_annotator.annotate(scene=blend,
+                                                       detections=detections)
+                            blend = label_annotator.annotate(scene=blend,
+                                                            detections=detections,
+                                                            labels=labels)
+                        except:
+                            print("Cannot add detection!")
 
                 if saver.dataset != 'gradio':
                     # find a place to save the visualization
