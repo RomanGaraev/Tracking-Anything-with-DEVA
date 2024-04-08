@@ -256,11 +256,11 @@ def save_result(queue: Queue):
                         try:
                             all_cat_ids.append(seg['category_id'])
                         except:
-                            all_cat_ids.append(-1)
+                            all_cat_ids.append(0)
                         try:
                             all_scores.append(seg['score'])
                         except:
-                            all_scores.append(-1)
+                            all_scores.append(0)
                     if len(all_masks) > 0:
                         all_masks = torch.stack(all_masks, dim=0)
                         xyxy = torchvision.ops.masks_to_boxes(all_masks)
