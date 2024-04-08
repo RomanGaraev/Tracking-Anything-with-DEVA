@@ -48,6 +48,7 @@ def process_frame_with_text(deva: DEVAInferenceCore,
     image = get_input_frame_for_deva(image_np, new_min_side)
 
     frame_name = path.basename(frame_path)
+    print(f"{frame_name} in process")
     frame_info = FrameInfo(image, None, None, ti, {
         'frame': [frame_name],
         'shape': [h, w],
