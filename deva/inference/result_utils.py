@@ -252,13 +252,13 @@ def save_result(queue: Queue):
                         try:
                             labels.append(f'{prompts[seg["category_id"]]} {seg["score"]:.2f}')
                         except:
-                            labels.append(f'err')
+                            labels.append('err' * min(1, len(all_masks)))
                         try:
                             all_cat_ids.append(seg['category_id'])
                         except:
-                            all_cat_ids.append(0)
+                            all_cat_ids.append(0 * min(1, len(all_masks)))
                         try:
-                            all_scores.append(seg['score'])
+                            all_scores.append(seg['score'] * min(1, len(all_masks)))
                         except:
                             all_scores.append(0)
                     if len(all_masks) > 0:
