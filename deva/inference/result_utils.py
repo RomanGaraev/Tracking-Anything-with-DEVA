@@ -105,7 +105,7 @@ class ResultSaver:
             saver=self,
             mask=mask.cpu(),
             frame_name=frame_name,
-            save_the_mask=save_the_mask,
+            save_the_mask=True,
             image_np=image_np,
             prompts=prompts,
             path_to_image=path_to_image,
@@ -146,7 +146,7 @@ def save_result(queue: Queue):
         saver = args.saver
         mask = args.mask
         frame_name = args.frame_name
-        save_the_mask = args.save_the_mask
+        save_the_mask = True
         image_np = args.image_np
         prompts = args.prompts
         path_to_image = args.path_to_image
