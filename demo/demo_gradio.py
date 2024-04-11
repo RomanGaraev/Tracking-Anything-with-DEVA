@@ -50,7 +50,7 @@ def demo_with_text(video: gr.Video, text: str, threshold: float, max_num_objects
     print('Configuration:', cfg)
 
     # obtain temporary directory
-    result_saver = ResultSaver("/demo/", None, dataset='demo', object_manager=deva.object_manager)
+    result_saver = ResultSaver("/demo/", None, dataset='gradio', object_manager=deva.object_manager)
     writer_initizied = False
 
     cap = cv2.VideoCapture(video)

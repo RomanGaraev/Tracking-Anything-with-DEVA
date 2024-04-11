@@ -74,6 +74,11 @@ class ResultSaver:
             self.writer = None
             self.need_remapping = True
             self.visualize = True
+            self.all_annotations = []
+            self.video_json = {'annotations': self.all_annotations}
+            self.json_style = 'vipseg'
+            self.visualize_postfix = 'Visualizations'
+            self.output_postfix = 'Annotations'
         else:
             raise NotImplementedError
 
